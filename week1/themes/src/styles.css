@@ -22,3 +22,17 @@ button {
     background-color: whitesmoke;
     color: #333333;
 }
+.column{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    top: 90%;
+    color:#333333;
+    background-color: whitesmoke;
+}
+.rows{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    top: 1000px;
+    color: whitesmoke;
+    background-color: #333333;
+}

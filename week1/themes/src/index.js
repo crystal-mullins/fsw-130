@@ -2,13 +2,20 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 import App from "./App"
-// import ThemeContext from "./themeContext"
+import ThemeContext from "./themeContext"
+import UserContext from "./userContext"
 
-const ThemeContext = React.createContext()
 
 ReactDOM.render(
-    <ThemeContext.Provider value={"light"}>
+
+  <UserContext.Provider value={"John Mayer"}>
+    <ThemeContext.Provider value={"dark"}>
         <App />
-    </ThemeContext.Provider>, 
+    </ThemeContext.Provider>
+
+  </UserContext.Provider>,
+       
+    
+    
     document.getElementById("root")
 )

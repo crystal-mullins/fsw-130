@@ -1,38 +1,21 @@
 import React from "react"
 import ThemeContext from './themeContext'
 
-function Header(props){
+function Footer(props){
 
         return (
             <ThemeContext.Consumer>
-                {theme => (
+             
+              {theme => (
                      
                      <header className={`${theme}-theme`}>
-                     <h2>{theme === "light" ? "Light" : "Dark"} Theme</h2>
-                </header>
+                     <h2>{theme === "light" ? "light" : "Dark"} New Display</h2>
+                    </header>
 
                 )}
-            </ThemeContext.Consumer> 
-       
-
+            </ThemeContext.Consumer>
         )    
 }
 
 
-export default Header
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Footer
