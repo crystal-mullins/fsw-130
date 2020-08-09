@@ -22,7 +22,7 @@ button {
     background-color: whitesmoke;
     color: #333333;
 }
-.column{
+/* .column{
     display: grid;
     grid-template-columns: 50% 50%;
     top: 90%;
@@ -35,4 +35,4 @@ button {
     top: 1000px;
     color: whitesmoke;
     background-color: #333333;
-}
+} */

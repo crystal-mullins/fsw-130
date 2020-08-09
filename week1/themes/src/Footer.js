@@ -1,19 +1,19 @@
 import React from "react"
-import ThemeContext from './themeContext'
+import {ThemeContextConsumer} from './themeContext'
 
 function Footer(props){
 
         return (
-            <ThemeContext.Consumer>
+            <ThemeContextConsumer>
              
               {theme => (
                      
                      <header className={`${theme}-theme`}>
-                     <h2>{theme === "light" ? "light" : "Dark"} New Display</h2>
+                     <h2>{theme === "light" ? "light" : "Dark"} Footer</h2>
                     </header>
 
                 )}
-            </ThemeContext.Consumer>
+            </ThemeContextConsumer>
         )    
 }
 
