@@ -15,7 +15,7 @@ class App extends React.Component {
   state = {
     newCompanyName:"",
     newProductName:"",
-   
+    img:"",
     name: '',
     price:'',
     newProductDescription:
@@ -27,6 +27,12 @@ class App extends React.Component {
 }
 
 
+handleChange = (e) => {
+  const {name, value} = e.target
+  this.setState({ [name] : value})
+  }
+
+ 
 
 
 render() {
@@ -44,34 +50,67 @@ render() {
            
             <Card />
             <UserContextConsumer>
-            {({newCompanyName, changeUserName, newProductName, changeCompanyName, productDescription, changeProductDescription, changeProductName}) => (
+            {({companyName,  productName, productDescription,  productPrice, img, handleSubmit}) => (
+              <form className="wrapper" onSubmit={(e)=> {
+                // handleSubmit = (e) =>{
+      
+                  e.preventDefault()
+                  let newCardData= {
+                      companyName: this.state.companyName,
+                      productName: this.state.productName,
+                      productPrice: this.state.productPrice,  
+                      productDescription: this.state.productDescription,
+                      img: this.state.img
+                  }
+                      handleSubmit(newCardData)
+              // }
+              
+
+              }}>
                             <main>
                             <input
-                            type="text"
-                            name="newCompanyName"
+                            type="text"                            name="companyName"
                             placeholder="Enter Company Name"
-                            value={newCompanyName}
-                            onChange={(e) => changeUserName(e.target.value)}
+                            value={this.state.companyName}
+                            onChange={this.handleChange}
                           
                             />
                         <input
                             type="text"
-                            name="newProductName"
+                            name="productName"
                             placeholder="Enter Product Name"
-                            value={newProductName}
-                            onChange={(e) => changeCompanyName(e.target.value)}
+                            value={this.state.productName}
+                            onChange={this.handleChange}
                           
                             />
                              <input
                             type="text"
-                            name="newProductDescription"
+                            name="productDescription"
                             placeholder="Enter Product Description"
-                            value={productDescription}
-                            onChange={(e) => changeProductDescription(e.target.value)}
+                            value={this.state.productDescription}
+                            onChange={this.handleChange}
+                            // onChange={(e) => handleSubmit(e.target.value)}
+                          
+                            />
+                             <input
+                            type="number"
+                            name="productPrice"
+                            placeholder="Enter Product price"
+                            value={productPrice}
+                            onChange={this.handleChange}
+                          
+                            />
+                             <input
+                            type="img"
+                            name="img"
+                            placeholder="Enter Product img ulr"
+                            value={this.state.img}
+                            onChange={this.handleChange}
                           
                             />
                             <button style={{gridColumn:"span 2", width:"50%", marginLeft:"25%"}}>On Submit</button>
                             </main>
+                            </form>
             )}
             </UserContextConsumer>
            

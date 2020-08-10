@@ -7,10 +7,9 @@ class UserContextProvider extends React.Component {
     state = {
         username: "Your name",
         productName:"",
-        newProductrName:"",
         productDescription:"",
         companyName:"Company/ Farm name",
-        newCompanyName:""
+       
     }
     changeUserName = (username) => {
         this.setState({username})
@@ -25,13 +24,26 @@ class UserContextProvider extends React.Component {
          this.setState({productDescription})
        
     }
+    handleSubmit = (newItem) =>{
+    
+        this.setState( {
+            companyName:newItem.companyName,
+            productName:newItem.productName,
+            productPrice:newItem.productPrice, 
+            productDescription:newItem.productDescription,
+            img:newItem.img,
+            // editing:false   
+         })
+        
+    }
     render(){
-        const {username} = this.state
-        const {companyName} = this.state
-        const {productDescription} = this.state
+        const {username, productName, productPrice, img,
+            companyName,  productDescription,} = this.state
+        // const {companyName} = this.state
+        // const {productDescription} = this.state
        return(
-           <Provider value={{username,changeUserName: this.changeUserName,
-           companyName, changeCompanyName: this.changeCompanyName, productDescription, changeProductDescription: this.changeProductDescription}
+           <Provider value={{username, productName, productPrice, img,
+           companyName,  productDescription,  handleSubmit : this.handleSubmit}
            }>
         {this.props.children}
     </Provider>

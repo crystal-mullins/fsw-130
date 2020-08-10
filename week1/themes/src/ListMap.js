@@ -2,19 +2,20 @@ import React, {Component} from 'react'
 import Card from './Card'
 import items from './ListData'
 
+
 class ListMap extends Component {
     render(){
         
         
-        const mappedCards = this.props.items.map( (card, i) => {
+        const mappedCards = this.props.items.map( (items, i) => {
             return(
                 <Card
                 key={i}
                 index={i}
-                Company={items.Company}
-                name={items.name}
+                Company={items.companyName}
+                productName={items.productName}
                 price={items.price}
-                description={items.description}
+                productDescription={items.productDescription}
                 img={items.image}
 
                 handleDelete={this.props.handleDelete}

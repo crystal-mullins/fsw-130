@@ -5,43 +5,32 @@ import {UserContextConsumer} from "./userContext"
 class Card extends Component{
     constructor(props){
         super(props)
-        var { index, company, productName, price, description, img,  id } =this.props
+        var { index, companyName, productName, price, description, img,  id } =this.props
         this.state= {
-            index, company, productName, price, description, img, id, editing: false
+            index, companyName, productName, price, description, img, id, editing: false
         }
     }
-    handleSubmit = (newItem) =>{
-    
-        this.setState( {
-            newCompanyName:newItem.newCompanyName,
-            newProductName:newItem.newProductName,
-            price:newItem.price, 
-            newProductDescription:newItem.newProductDescription,
-            img:newItem.img,
-            // editing:false   
-         })
-         this.props.handleSubmit(newItem)
-    }
+
     
     render(){
     return(
         <div> 
             <h1 className='card-banner'>Today's Special's</h1>
             <UserContextConsumer>
-            {({companyName, newProductName, newProductDescription, price, img}) => (
+            {({companyName,  productName, productDescription,  productPrice, img}) => (
         <div className="card-wrapper">
 
                 <div className='card'>
                <p>Company :
                    {companyName}</p>
                 <p>Product name :
-                    {newProductName}</p>
+                    {productName}</p>
                 <p>Product Description: 
-                    {newProductDescription}</p>
+                    {productDescription}</p>
                 <p>price 
-                    {price}</p>
-                <p>Picture 
-                    {img}</p>
+                    {productPrice}</p>
+                <img src={img}> 
+                    </img>
                 </div>
                
           

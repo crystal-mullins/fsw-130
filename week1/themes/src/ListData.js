@@ -1,23 +1,23 @@
 const items = [
     {
-        company:"Midnight SunFarm",
-        name:"Me and my uncle",
+        companyName:"Midnight SunFarm",
+        productName:"Me and my uncle",
         price: 1500,
-        description:"last years outdoor, still good!",
+        productDescription:"last years outdoor, still good!",
         img:"img"
     },
     {
-        company:"Midnight SunFarm",
-        name:"Fresno Blend",
+        companyName:"Midnight SunFarm",
+        produstName:"Fresno Blend",
         price: 2000,
-        description:"sprng flowers",
+        productDescription:"sprng flowers",
         img:"img"
     },
     {
-        company:"Eletric Brokers",
-        name:"O.G.",
+        companyName:"Eletric Brokers",
+        productName:"O.G.",
         price: 2500,
-        description:"great flavor and smell",
+        productDescription:"great flavor and smell",
         img:"img"
     },
 ]
