@@ -12,36 +12,64 @@
 // );
 
 
-import React from 'react';
-import Reducer from './timer'
-import './App.css';
+// import React from 'react';
+// import Reducer from './timer'
+// import './App.css';
 const redux = require("redux")
 
 
 
-function increment() {
+function changeCount(amount) {
     return {
-        type: "INCREMENT"
+        type: "CHANGE_COUNT",
+        payload: amount
     }
 }
 
-function decrement() {
+function addFavroiteThing(thing){
     return {
-        type: "DECREMENT"
+        type: "ADD_FAVROITE_THING",
+        payload: thing
     }
+
 }
 
-function reducer(state = {count: 0}, action) {
+function removeFavroiteThing(thing){
+    return {
+        type: "REMOVE_FAVROITE_THING",
+        payload: thing
+    }
+
+}
+
+const initialState = {
+    count: 0,
+    favroiteThings: []
+}
+
+
+
+function reducer(state = initialState,  action) {
     // return new state based on the incoming action.type
     switch(action.type) {
-        case "INCREMENT":
-            return {
-                count: state.count + 1
+
+        case "CHANGE_COUNT":
+            return{
+                ...state,
+                count: state.count + action.payload
             }
-        case "DECREMENT":
-            return {
-                count: state.count - 1
-            }
+            case "ADD_FAVROITE_THING":
+                return{
+                    ...state,
+                    favroiteThings: [ ...state.favroiteThings, action.payload]
+                }
+                case "REMOVE_FAVROITE_THING":
+                    const updatedArr = state.favroiteThings.filter(thing => thing.toLowerCase() !== action.payload.toLowerCase())
+                    return{
+                        ...state,
+                        favroiteThings: updatedArr
+                    }
+      
         default:
             return state
     }
@@ -52,6 +80,11 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
-store.dispatch(increment())
+store.dispatch(changeCount(-5))
+store.dispatch(addFavroiteThing("stuff"))
+store.dispatch(addFavroiteThing("thing"))
 
-store.dispatch(decrement())
+
+store.dispatch(removeFavroiteThing("thing"))
+
+
